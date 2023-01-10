@@ -1,0 +1,57 @@
+1. List all the columns of the Salespeople table.
+
+select * from salespeople;
+
+2. List all customers with a rating of 100.
+
+ select * from customers where rating=100;
+
+3. Find all records in the Customer table with NULL values in the city column.
+
+select * from customer where city is null;
+
+4. Find the largest order taken by each salesperson on each date.
+
+select s.sname, o.odate, max(amt) highest_order
+    -> from salespeople s, orders o
+    -> where s.snum=o.snum
+    -> group by s.sname,o.odate;
+
+5. Arrange the Orders table by descending customer number
+
+ select * from orders order by cnum desc;
+
+6. Find which salespeople currently have orders in the Orders table.
+
+ select distinct s.sname from salespeople s,orders o
+    -> where s.snum=o.snum;
+
+
+7. List names of all customers matched with the salespeople serving them
+
+ select cname,sname from customers c, salespeople s
+    -> where c.snum=s.snum;
+
+
+8.Find the names and numbers of all salespeople who had more than one customer.
+
+ select s.sname, count(c.cnum) count_of_c from salespeople s, customers c
+    -> where s.snum=c.snum
+    -> group by sname
+    -> having count(cnum)>1;
+
+
+9. Count the orders of each of the salespeople and output the results in descending order.
+
+ select sname, count(onum) "no of orders" from salespeople s,orders o
+    -> where s.snum=o.snum
+    -> group by sname
+    -> order by count(onum) desc;
+
+
+10. List the Customer table if and only if one or more of the customers in the Customer table are 
+located in San Jose.
+
+
+ select cname,city from customers
+    -> where city="san jose";
