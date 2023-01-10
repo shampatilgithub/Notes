@@ -9,7 +9,7 @@ jobs:
     
     steps :
       - name: Checkout the code 
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       
       - name: Deploy to my EC2 instance
         uses: easingthemes/ssh-deploy@v2.1.5
