@@ -21,4 +21,4 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/home/ec2-user/"
       - name : Install Dependencies
-        run: pip3 install -r requirements.txt
+        run: pip3 install -r requirments.txt
